@@ -1,12 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2mg0a6btl86b"]
+[gd_scene load_steps=5 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
+[ext_resource type="Texture2D" uid="uid://dmjaikij15b4p" path="res://assets/background.png" id="2_ovyu4"]
+[ext_resource type="Script" path="res://scripts/conductor.gd" id="3_k5wre"]
+[ext_resource type="AudioStream" uid="uid://cx70euw3k1dlt" path="res://music/good-night-160166.mp3" id="4_4jtpn"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_swfh4")
 
 [node name="Outer World Background" type="Sprite2D" parent="."]
+position = Vector2(484, 272)
+texture = ExtResource("2_ovyu4")
 
 [node name="Inner World" type="AnimatedSprite2D" parent="."]
 
 [node name="Tiny" type="Sprite2D" parent="."]
+
+[node name="conductor" type="AudioStreamPlayer" parent="."]
+autoplay = true
+script = ExtResource("3_k5wre")
+
+[node name="good-night-player" type="AudioStreamPlayer" parent="conductor"]
+stream = ExtResource("4_4jtpn")
+autoplay = true
