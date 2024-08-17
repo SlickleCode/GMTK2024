@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2mg0a6btl86b"]
+[gd_scene load_steps=3 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
+[ext_resource type="Texture2D" uid="uid://46bj1lnkjodp" path="res://assets/background.png" id="2_jeaok"]
 
 [node name="World" type="Node2D"]
+position = Vector2(399, 302)
+scale = Vector2(2, 2)
 script = ExtResource("1_swfh4")
 
 [node name="Outer World Background" type="Sprite2D" parent="."]
 
-[node name="Inner World" type="AnimatedSprite2D" parent="."]
+[node name="Inner World" type="Sprite2D" parent="."]
+texture = ExtResource("2_jeaok")
 
 [node name="Tiny" type="Sprite2D" parent="."]
