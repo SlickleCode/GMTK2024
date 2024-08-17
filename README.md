@@ -26,3 +26,11 @@ https://www.youtube.com/watch?v=8HswBGD5av0
 - Tiny having downtime/cute activities (watering plants, sleeping, fishing, etc)
 - Switch keys for bonus? Do two activities at once?
 - Add a fuck-ton of polish (animation/art, rhythm game)
+
+
+
+Good Night Music by FASSounds from Pixabay
+
+"Celebration" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
