@@ -185,7 +185,8 @@ script = ExtResource("3_k5wre")
 [node name="InputManager" type="Node2D" parent="."]
 
 [node name="LeftLegInputSpot" type="Area2D" parent="InputManager"]
-position = Vector2(2, 220)
+position = Vector2(31, 246)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/LeftLegInputSpot"]
 shape = SubResource("RectangleShape2D_ehd4f")
@@ -194,7 +195,8 @@ shape = SubResource("RectangleShape2D_ehd4f")
 texture = ExtResource("33_aeh84")
 
 [node name="RightLegInputSpot" type="Area2D" parent="InputManager"]
-position = Vector2(90.5, 220)
+position = Vector2(73, 246)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/RightLegInputSpot"]
 shape = SubResource("RectangleShape2D_wq5g8")
@@ -203,7 +205,8 @@ shape = SubResource("RectangleShape2D_wq5g8")
 texture = ExtResource("34_s101w")
 
 [node name="LeftHandInputSpot" type="Area2D" parent="InputManager"]
-position = Vector2(350, 220)
+position = Vector2(351, 246)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/LeftHandInputSpot"]
 shape = SubResource("RectangleShape2D_r2iw0")
@@ -212,7 +215,8 @@ shape = SubResource("RectangleShape2D_r2iw0")
 texture = ExtResource("35_5islh")
 
 [node name="RightHandInputSpot" type="Area2D" parent="InputManager"]
-position = Vector2(401.5, 220)
+position = Vector2(393, 246)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/RightHandInputSpot"]
 shape = SubResource("RectangleShape2D_06fb3")

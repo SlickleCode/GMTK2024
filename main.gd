@@ -1,5 +1,6 @@
 extends Node2D
 
+var score = 0
 
 func _ready():
 	randomize()
@@ -14,13 +15,21 @@ func _physics_process(delta):
 		$BigPath.position.x = 324
 
 	if Input.is_action_just_pressed('left_leg'):
-		pass
+		print('left leg button')
+		score += $NoteManager.check_for_points(Enums.Limb.LEFT_FOOT)
+		print('Score: ' + str(score))
 	elif Input.is_action_just_pressed('right_leg'):
 		print('right leg button')
+		score += $NoteManager.check_for_points(Enums.Limb.RIGHT_FOOT)
+		print('Score: ' + str(score))
 	elif Input.is_action_just_pressed('left_hand'):
 		print('left hand button')
+		score += $NoteManager.check_for_points(Enums.Limb.LEFT_HAND)
+		print('Score: ' + str(score))
 	elif Input.is_action_just_pressed('right_hand'):
 		print('right hand button')
+		score += $NoteManager.check_for_points(Enums.Limb.RIGHT_HAND)
+		print('Score: ' + str(score))
 
 func _on_conductor_beat(position):
 	#print(position)
