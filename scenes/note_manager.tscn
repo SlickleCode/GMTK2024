@@ -1,8 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbc1l11kyrrac"]
+[gd_scene load_steps=3 format=3 uid="uid://cbc1l11kyrrac"]
 
 [ext_resource type="Script" path="res://scripts/note_manager.gd" id="1_a1op6"]
+[ext_resource type="Texture2D" uid="uid://bk804jaongka7" path="res://assets/note_chute.png" id="2_8014w"]
 
 [node name="NoteManager" type="Node2D"]
 script = ExtResource("1_a1op6")
 
-[node name="NoteGroup" type="Node2D" parent="."]
+[node name="left_foot_spawner" type="Node2D" parent="."]
+position = Vector2(31, 0)
+
+[node name="left_foot_notes" type="Node2D" parent="left_foot_spawner"]
+
+[node name="Sprite2D" type="Sprite2D" parent="left_foot_spawner"]
+texture = ExtResource("2_8014w")
+centered = false
+offset = Vector2(-11, 0)
+
+[node name="right_foot_spawner" type="Node2D" parent="."]
+position = Vector2(73, 0)
+
+[node name="right_foot_notes" type="Node2D" parent="right_foot_spawner"]
+
+[node name="Sprite2D" type="Sprite2D" parent="right_foot_spawner"]
+texture = ExtResource("2_8014w")
+centered = false
+offset = Vector2(-11, 0)
+
+[node name="left_hand_spawner" type="Node2D" parent="."]
+position = Vector2(351, 0)
+
+[node name="left_hand_notes" type="Node2D" parent="left_hand_spawner"]
+
+[node name="Sprite2D" type="Sprite2D" parent="left_hand_spawner"]
+texture = ExtResource("2_8014w")
+centered = false
+offset = Vector2(-11, 0)
+
+[node name="right_hand_spawner" type="Node2D" parent="."]
+position = Vector2(393, 0)
+
+[node name="right_hand_notes" type="Node2D" parent="right_hand_spawner"]
+
+[node name="Sprite2D" type="Sprite2D" parent="right_hand_spawner"]
+texture = ExtResource("2_8014w")
+centered = false
+offset = Vector2(-11, 0)

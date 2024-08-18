@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
-[ext_resource type="Texture2D" uid="uid://dmjaikij15b4p" path="res://assets/background.png" id="2_ovyu4"]
+[ext_resource type="Texture2D" uid="uid://dlsgl7j6g8nyb" path="res://assets/background.png" id="2_ovyu4"]
 [ext_resource type="AudioStream" uid="uid://cmst1pwtro53h" path="res://assets/music/good-night-160166.mp3" id="3_3ufm7"]
 [ext_resource type="Script" path="res://scripts/conductor.gd" id="3_k5wre"]
 [ext_resource type="PackedScene" uid="uid://cbc1l11kyrrac" path="res://scenes/note_manager.tscn" id="5_sb0fr"]
@@ -11,7 +11,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_swfh4")
 
 [node name="Outer World Background" type="Sprite2D" parent="."]
-position = Vector2(200, 150)
+position = Vector2(212.5, 149)
 texture = ExtResource("2_ovyu4")
 
 [node name="Inner World" type="Sprite2D" parent="."]
