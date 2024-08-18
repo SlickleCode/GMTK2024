@@ -13,10 +13,10 @@ func _on_conductor_beat(position):
 
 func _on_conductor_spot_in_measure(position):
 	if position == 1:
-		print('tomato1')
+		$NoteManager.create_note()
 	elif position == 2:
-		print("tomato2")
+		$NoteManager.create_note()
 	elif position == 3:
-		print("tomato3")
+		$NoteManager.create_note()
 	elif position == 4:
-		print('tomato4')
+		$NoteManager.create_note()
