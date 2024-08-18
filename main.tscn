@@ -13,7 +13,8 @@ script = ExtResource("1_swfh4")
 position = Vector2(200, 150)
 texture = ExtResource("2_ovyu4")
 
-[node name="Inner World" type="AnimatedSprite2D" parent="."]
+[node name="Inner World" type="Sprite2D" parent="."]
+texture = ExtResource("2_jeaok")
 
 [node name="Tiny" type="Sprite2D" parent="."]
 
