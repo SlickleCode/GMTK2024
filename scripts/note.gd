@@ -2,10 +2,10 @@ extends Node2D
 
 @export_range(0, 4) var body_part := 0
 
-var notes = [preload("res://assets/left_foot.png"),
-preload("res://assets/right_foot.png"),
-preload("res://assets/left_hand.png"),
-preload("res://assets/right_hand.png")]
+var notes = [preload("res://assets/notes/left_foot.png"),
+preload("res://assets/notes/right_foot.png"),
+preload("res://assets/notes/left_hand.png"),
+preload("res://assets/notes/right_hand.png")]
 
 var potential_score = 0
 
