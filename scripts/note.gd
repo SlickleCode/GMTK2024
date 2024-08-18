@@ -2,13 +2,6 @@ extends Node2D
 
 @export_range(0, 4) var body_part := 0
 
-enum Limb {
-	LEFT_FOOT,
-	RIGHT_FOOT,
-	LEFT_HAND,
-	RIGHT_HAND
-}
-
 var notes = [
 	preload("res://assets/notes/left_foot.png"),
 	preload("res://assets/notes/right_foot.png"),
@@ -23,6 +16,7 @@ func _ready():
 	$NotePicture.texture = notes[body_part]
 
 func _on_poor_rating_area_entered(area):
+	#TODO remove
 	print('tomato')
 	potential_score += 1
 
