@@ -6,20 +6,21 @@
 [ext_resource type="AudioStream" uid="uid://cx70euw3k1dlt" path="res://music/good-night-160166.mp3" id="4_4jtpn"]
 
 [node name="World" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_swfh4")
 
 [node name="Outer World Background" type="Sprite2D" parent="."]
-position = Vector2(484, 272)
+position = Vector2(200, 150)
 texture = ExtResource("2_ovyu4")
 
 [node name="Inner World" type="AnimatedSprite2D" parent="."]
 
 [node name="Tiny" type="Sprite2D" parent="."]
 
-[node name="conductor" type="AudioStreamPlayer" parent="."]
+[node name="Conductor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4jtpn")
 autoplay = true
 script = ExtResource("3_k5wre")
 
-[node name="good-night-player" type="AudioStreamPlayer" parent="conductor"]
-stream = ExtResource("4_4jtpn")
-autoplay = true
+[connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
+[connection signal="spot_in_measure" from="Conductor" to="." method="_on_conductor_spot_in_measure"]
