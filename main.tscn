@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2mg0a6btl86b"]
+[gd_scene load_steps=42 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
 [ext_resource type="Texture2D" uid="uid://dlsgl7j6g8nyb" path="res://assets/background.png" id="2_ovyu4"]
+[ext_resource type="Texture2D" uid="uid://csy2l0we60dgx" path="res://assets/big_background/sky.png" id="2_wno60"]
 [ext_resource type="Texture2D" uid="uid://cgjwdyrvs5rhd" path="res://assets/big_background/grass_path.png" id="2_yywv4"]
 [ext_resource type="AudioStream" uid="uid://cmst1pwtro53h" path="res://assets/music/good-night-160166.mp3" id="3_3ufm7"]
 [ext_resource type="Texture2D" uid="uid://vi1fb62rvcqp" path="res://assets/big_background/silhouette-skyline-2.png" id="3_38x7x"]
@@ -31,6 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://xfjea320saor" path="res://assets/big_character/woman/walk/Character1F_1_walk_5.png" id="24_b7h15"]
 [ext_resource type="Texture2D" uid="uid://0plul7i41bpg" path="res://assets/big_character/woman/walk/Character1F_1_walk_6.png" id="25_8u8pq"]
 [ext_resource type="Texture2D" uid="uid://yf16ah84ojik" path="res://assets/big_character/woman/walk/Character1F_1_walk_7.png" id="26_484g8"]
+[ext_resource type="Texture2D" uid="uid://dddptgqssvvjd" path="res://assets/notes/left_foot_outline.png" id="33_aeh84"]
+[ext_resource type="Texture2D" uid="uid://b2x5c0y0hc7mw" path="res://assets/notes/right_foot_outline.png" id="34_s101w"]
+[ext_resource type="Texture2D" uid="uid://ckfbmhge6idpr" path="res://assets/notes/left_hand_outline.png" id="35_5islh"]
+[ext_resource type="Texture2D" uid="uid://ctwq3rqcgivya" path="res://assets/notes/right_hand_outline.png" id="36_ejf5t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ofyq"]
 animations = [{
@@ -127,16 +132,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehd4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq5g8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2iw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06fb3"]
+
 [node name="Main" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_swfh4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(215.25, 177.75)
+[node name="BigSky" type="Sprite2D" parent="."]
+position = Vector2(214.75, 115)
+scale = Vector2(2.105, 1.51)
+texture = ExtResource("2_wno60")
+
+[node name="BigPath" type="Sprite2D" parent="."]
+position = Vector2(324, 177)
 scale = Vector2(0.670313, 0.355)
 texture = ExtResource("2_yywv4")
 
-[node name="Big World" type="Sprite2D" parent="."]
+[node name="BigSkyLine" type="Sprite2D" parent="."]
 position = Vector2(429, 117.5)
 scale = Vector2(0.4, 0.7)
 texture = ExtResource("3_38x7x")
@@ -148,7 +166,7 @@ animation = &"run"
 autoplay = "run"
 frame_progress = 0.459721
 
-[node name="Tiny World" type="Sprite2D" parent="."]
+[node name="TinyWorld" type="Sprite2D" parent="."]
 position = Vector2(212, 150)
 texture = ExtResource("2_ovyu4")
 
@@ -162,6 +180,44 @@ autoplay = true
 script = ExtResource("3_k5wre")
 
 [node name="NoteManager" parent="." instance=ExtResource("5_sb0fr")]
+
+[node name="InputManager" type="Node2D" parent="."]
+
+[node name="LeftLegInputSpot" type="Area2D" parent="InputManager"]
+position = Vector2(2, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/LeftLegInputSpot"]
+shape = SubResource("RectangleShape2D_ehd4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputManager/LeftLegInputSpot"]
+texture = ExtResource("33_aeh84")
+
+[node name="RightLegInputSpot" type="Area2D" parent="InputManager"]
+position = Vector2(90.5, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/RightLegInputSpot"]
+shape = SubResource("RectangleShape2D_wq5g8")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputManager/RightLegInputSpot"]
+texture = ExtResource("34_s101w")
+
+[node name="LeftHandInputSpot" type="Area2D" parent="InputManager"]
+position = Vector2(350, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/LeftHandInputSpot"]
+shape = SubResource("RectangleShape2D_r2iw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputManager/LeftHandInputSpot"]
+texture = ExtResource("35_5islh")
+
+[node name="RightHandInputSpot" type="Area2D" parent="InputManager"]
+position = Vector2(401.5, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/RightHandInputSpot"]
+shape = SubResource("RectangleShape2D_06fb3")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputManager/RightHandInputSpot"]
+texture = ExtResource("36_ejf5t")
 
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
 [connection signal="spot_in_measure" from="Conductor" to="." method="_on_conductor_spot_in_measure"]

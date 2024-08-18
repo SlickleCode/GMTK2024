@@ -14,6 +14,7 @@ func _ready():
 	$NotePicture.texture = notes[body_part]
 
 func _on_poor_rating_area_entered(area):
+	print('tomato')
 	potential_score += 1
 
 
