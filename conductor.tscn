@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://q15fqgheq8ve"]
+
+[ext_resource type="Script" path="res://scripts/conductor.gd" id="1_wifty"]
+
+[node name="Conductor" type="AudioStreamPlayer"]
+script = ExtResource("1_wifty")
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
