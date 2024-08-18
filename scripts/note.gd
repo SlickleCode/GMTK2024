@@ -10,10 +10,10 @@ enum Limb {
 }
 
 var notes = [
-	preload("res://assets/left_foot.png"),
-	preload("res://assets/right_foot.png"),
-	preload("res://assets/left_hand.png"),
-	preload("res://assets/right_hand.png")
+	preload("res://assets/notes/left_foot.png"),
+	preload("res://assets/notes/right_foot.png"),
+	preload("res://assets/notes/left_hand.png"),
+	preload("res://assets/notes/right_hand.png")
 ]
 
 var potential_score = 0
@@ -23,6 +23,7 @@ func _ready():
 	$NotePicture.texture = notes[body_part]
 
 func _on_poor_rating_area_entered(area):
+	print('tomato')
 	potential_score += 1
 
 func _on_good_rating_area_entered(area):
