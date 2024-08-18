@@ -36,3 +36,12 @@ func _on_conductor_spot_in_measure(position):
 		$NoteManager.create_random_note()
 	elif position == 4:
 		$NoteManager.create_random_note()
+
+
+func _on_conductor_finished():
+	await get_tree().create_timer(3.0).timeout
+	$Big.play("walk")
+	await get_tree().create_timer(3.0).timeout
+	$Big.play("wait")
+	await get_tree().create_timer(4.0).timeout
+	$CanvasLayer.show()

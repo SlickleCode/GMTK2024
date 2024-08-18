@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d2mg0a6btl86b"]
+[gd_scene load_steps=43 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
 [ext_resource type="Texture2D" uid="uid://dlsgl7j6g8nyb" path="res://assets/background.png" id="2_ovyu4"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://b2x5c0y0hc7mw" path="res://assets/notes/right_foot_outline.png" id="34_s101w"]
 [ext_resource type="Texture2D" uid="uid://ckfbmhge6idpr" path="res://assets/notes/left_hand_outline.png" id="35_5islh"]
 [ext_resource type="Texture2D" uid="uid://ctwq3rqcgivya" path="res://assets/notes/right_hand_outline.png" id="36_ejf5t"]
+[ext_resource type="PackedScene" uid="uid://ds1yox0n0d32y" path="res://scenes/end_screen.tscn" id="37_u2io6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ofyq"]
 animations = [{
@@ -219,5 +220,13 @@ shape = SubResource("RectangleShape2D_06fb3")
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/RightHandInputSpot"]
 texture = ExtResource("36_ejf5t")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="end_screen" parent="CanvasLayer" instance=ExtResource("37_u2io6")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
+[connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
 [connection signal="spot_in_measure" from="Conductor" to="." method="_on_conductor_spot_in_measure"]
