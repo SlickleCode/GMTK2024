@@ -16,6 +16,8 @@ func _ready():
 	$NotePicture.texture = notes[body_part]
 
 func _on_poor_rating_area_entered(area):
+	if area.name == 'Despawner':
+		queue_free()
 	potential_score += 1
 
 func _on_good_rating_area_entered(area):

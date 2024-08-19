@@ -1,13 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://d2mg0a6btl86b"]
+[gd_scene load_steps=46 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
 [ext_resource type="Texture2D" uid="uid://dlsgl7j6g8nyb" path="res://assets/background.png" id="2_ovyu4"]
 [ext_resource type="Texture2D" uid="uid://csy2l0we60dgx" path="res://assets/big_background/sky.png" id="2_wno60"]
 [ext_resource type="Texture2D" uid="uid://cgjwdyrvs5rhd" path="res://assets/big_background/grass_path.png" id="2_yywv4"]
-[ext_resource type="AudioStream" uid="uid://cmst1pwtro53h" path="res://assets/music/good-night-160166.mp3" id="3_3ufm7"]
 [ext_resource type="Texture2D" uid="uid://vi1fb62rvcqp" path="res://assets/big_background/silhouette-skyline-2.png" id="3_38x7x"]
 [ext_resource type="Texture2D" uid="uid://doukil0nii8ya" path="res://assets/big_character/woman/jump/Character1F_1_jump_0.png" id="3_joaus"]
-[ext_resource type="Script" path="res://scripts/conductor.gd" id="3_k5wre"]
 [ext_resource type="Texture2D" uid="uid://b7di0fswhwk1w" path="res://assets/big_character/woman/jump/Character1F_1_jump_1.png" id="4_a04f7"]
 [ext_resource type="Texture2D" uid="uid://ci0405d5451p0" path="res://assets/big_character/woman/run/Character1F_1_run_0.png" id="5_i7w4d"]
 [ext_resource type="PackedScene" uid="uid://cbc1l11kyrrac" path="res://scenes/note_manager.tscn" id="5_sb0fr"]
@@ -170,12 +168,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehd4f"]
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq5g8"]
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2iw0"]
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06fb3"]
+size = Vector2(16, 16)
 
 [node name="Main" type="Node2D"]
 scale = Vector2(2, 2)
@@ -197,11 +199,10 @@ scale = Vector2(0.4, 0.7)
 texture = ExtResource("3_38x7x")
 
 [node name="Big" type="AnimatedSprite2D" parent="."]
-position = Vector2(119.5, 167.5)
+position = Vector2(124, 166)
 sprite_frames = SubResource("SpriteFrames_2ofyq")
-animation = &"run"
-autoplay = "run"
-frame_progress = 0.459721
+animation = &"wait"
+autoplay = "wait"
 
 [node name="TinyWorld" type="Sprite2D" parent="."]
 position = Vector2(212, 150)
@@ -216,18 +217,12 @@ frame_progress = 0.920584
 
 [node name="NoteLanes" type="Sprite2D" parent="."]
 
-[node name="Conductor" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3ufm7")
-autoplay = true
-script = ExtResource("3_k5wre")
-
 [node name="NoteManager" parent="." instance=ExtResource("5_sb0fr")]
 
 [node name="InputManager" type="Node2D" parent="."]
 
 [node name="LeftLegInputSpot" type="Area2D" parent="InputManager"]
 position = Vector2(31, 238.5)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/LeftLegInputSpot"]
 shape = SubResource("RectangleShape2D_ehd4f")
@@ -235,9 +230,23 @@ shape = SubResource("RectangleShape2D_ehd4f")
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/LeftLegInputSpot"]
 texture = ExtResource("33_aeh84")
 
+[node name="Label" type="Label" parent="InputManager/LeftLegInputSpot"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "Poor"
+horizontal_alignment = 1
+
 [node name="RightLegInputSpot" type="Area2D" parent="InputManager"]
 position = Vector2(73, 238.5)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/RightLegInputSpot"]
 shape = SubResource("RectangleShape2D_wq5g8")
@@ -245,9 +254,23 @@ shape = SubResource("RectangleShape2D_wq5g8")
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/RightLegInputSpot"]
 texture = ExtResource("34_s101w")
 
+[node name="Label" type="Label" parent="InputManager/RightLegInputSpot"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "Poor"
+horizontal_alignment = 1
+
 [node name="LeftHandInputSpot" type="Area2D" parent="InputManager"]
 position = Vector2(351, 238.5)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/LeftHandInputSpot"]
 shape = SubResource("RectangleShape2D_r2iw0")
@@ -255,15 +278,44 @@ shape = SubResource("RectangleShape2D_r2iw0")
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/LeftHandInputSpot"]
 texture = ExtResource("35_5islh")
 
+[node name="Label" type="Label" parent="InputManager/LeftHandInputSpot"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "Poor"
+horizontal_alignment = 1
+
 [node name="RightHandInputSpot" type="Area2D" parent="InputManager"]
 position = Vector2(392.5, 238.5)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/RightHandInputSpot"]
 shape = SubResource("RectangleShape2D_06fb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/RightHandInputSpot"]
 texture = ExtResource("36_ejf5t")
+
+[node name="Label" type="Label" parent="InputManager/RightHandInputSpot"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "Poor"
+horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -288,8 +340,11 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 24
-text = "Combo: "
+text = "Combo: 0"
 
-[connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
-[connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
-[connection signal="spot_in_measure" from="Conductor" to="." method="_on_conductor_spot_in_measure"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="change_song" from="CanvasLayer/end_screen" to="." method="on_song_change"]
+[connection signal="timeout" from="Timer" to="." method="start_song_and_game"]

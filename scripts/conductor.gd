@@ -19,6 +19,7 @@ signal beat(position)
 signal spot_in_measure(position)
 
 func _ready():
+	
 	sec_per_beat = 60.0 / bpm
 
 func _physics_process(_delta):
@@ -42,6 +43,7 @@ func play_with_beat_offset(num):
 #	TODO FIX WHY ITS NULL AHHH
 	#$StartTimer.wait_time = sec_per_beat
 	#$StartTimer.start()
+	play()
 
 func closest_beat(nth):
 	closest = int(round((song_position / sec_per_beat) / nth) * nth) 
