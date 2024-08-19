@@ -57,13 +57,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 36
-text = "Score: "
+text = "Score: 0"
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Menu"
+text = "Next song"
 
 [connection signal="pressed" from="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]

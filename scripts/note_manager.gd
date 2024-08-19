@@ -1,5 +1,7 @@
 extends Node2D
 
+var bpm = 1
+
 var note_scene = preload('res://scenes/Note.tscn')
 var notes_map = {
 	Globals.Limb.LEFT_FOOT: "left_foot_spawner/left_foot_notes",
@@ -18,7 +20,7 @@ func _physics_process(delta):
 		# it takes to get to the bottom of the lane (lane size / note size)
 		# 16 - size of note
 		# 3600 - frames per minute
-		note.position.y += 5 * ((16 * $"../Conductor".bpm / 3600.0))
+		note.position.y += 5 * ((16 * bpm / 3600.0))
 
 func create_random_note():
 	create_note_of_type(randi_range(0, 3))
@@ -53,4 +55,3 @@ func check_for_points(limb):
 			score = note.potential_score
 			note.queue_free()
 	return score
-	

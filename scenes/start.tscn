@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://sxg5shm5y8ux"]
+[gd_scene load_steps=6 format=3 uid="uid://sxg5shm5y8ux"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_1aju6"]
+[ext_resource type="Texture2D" uid="uid://4apnaumhw1hi" path="res://assets/notes/left_foot.png" id="2_eqn62"]
+[ext_resource type="Texture2D" uid="uid://bmfirf5tqciiu" path="res://assets/notes/right_foot.png" id="3_4bdp0"]
+[ext_resource type="Texture2D" uid="uid://bmh2hldwa371l" path="res://assets/notes/left_hand.png" id="4_tnlcm"]
+[ext_resource type="Texture2D" uid="uid://bks0wdbrat1sn" path="res://assets/notes/right_hand.png" id="5_wkwd4"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -15,7 +19,7 @@ script = ExtResource("1_1aju6")
 layout_mode = 0
 offset_right = 854.0
 offset_bottom = 612.0
-color = Color(0.287994, 0.218698, 0.477807, 1)
+color = Color(0.333333, 0.290196, 0.556863, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -49,16 +53,102 @@ layout_mode = 2
 text = "Credits: Slickle and wispwill"
 
 [node name="Control" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Start Game"
 
+[node name="Control4" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "How To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "D Key for Left Foot"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("2_eqn62")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "F Key for RIght Foot"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("3_4bdp0")
+stretch_mode = 5
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "J Key for Left Hand"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("4_tnlcm")
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "K Key for Right Hand"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("5_wkwd4")
+stretch_mode = 5
+
 [node name="Control2" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
