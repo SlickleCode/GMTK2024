@@ -81,5 +81,15 @@ func _on_conductor_finished():
 	$Big.play("walk")
 	await get_tree().create_timer(3.0).timeout
 	$Big.play("wait")
+	$NoteManager/left_foot_spawner.hide()
+	$InputManager/LeftLegInputSpot.hide()
+	$NoteManager/right_foot_spawner.hide()
+	$InputManager/RightLegInputSpot.hide()
+	$NoteManager/left_hand_spawner.hide()
+	$InputManager/LeftHandInputSpot.hide()
+	$NoteManager/right_hand_spawner.hide()
+	$InputManager/RightHandInputSpot.hide()
 	await get_tree().create_timer(3.0).timeout
 	$CanvasLayer.show()
+	$Tiny.hide()
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://d2mg0a6btl86b"]
+[gd_scene load_steps=48 format=3 uid="uid://d2mg0a6btl86b"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_swfh4"]
 [ext_resource type="Texture2D" uid="uid://dlsgl7j6g8nyb" path="res://assets/background.png" id="2_ovyu4"]
@@ -32,6 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://xfjea320saor" path="res://assets/big_character/woman/walk/Character1F_1_walk_5.png" id="24_b7h15"]
 [ext_resource type="Texture2D" uid="uid://0plul7i41bpg" path="res://assets/big_character/woman/walk/Character1F_1_walk_6.png" id="25_8u8pq"]
 [ext_resource type="Texture2D" uid="uid://yf16ah84ojik" path="res://assets/big_character/woman/walk/Character1F_1_walk_7.png" id="26_484g8"]
+[ext_resource type="Texture2D" uid="uid://pand3qu5nscm" path="res://assets/tiny_character/pose_1/little_buddy_pose_1_open.png" id="30_8bvqg"]
+[ext_resource type="Texture2D" uid="uid://dpltwqwa8tq2q" path="res://assets/tiny_character/pose_2/little_buddy_pose_2_blink.png" id="31_d8iyp"]
+[ext_resource type="Texture2D" uid="uid://ilwdlifparpd" path="res://assets/tiny_character/pose_1/little_buddy_pose_1_blink.png" id="31_hwo2t"]
+[ext_resource type="Texture2D" uid="uid://oqmxptm0t706" path="res://assets/tiny_character/pose_2/little_buddy_pose_2_open.png" id="32_xvsx8"]
 [ext_resource type="Texture2D" uid="uid://dddptgqssvvjd" path="res://assets/notes/left_foot_outline.png" id="33_aeh84"]
 [ext_resource type="Texture2D" uid="uid://b2x5c0y0hc7mw" path="res://assets/notes/right_foot_outline.png" id="34_s101w"]
 [ext_resource type="Texture2D" uid="uid://ckfbmhge6idpr" path="res://assets/notes/left_hand_outline.png" id="35_5islh"]
@@ -133,6 +137,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgtb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_8bvqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8bvqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_hwo2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8bvqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xvsx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xvsx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_d8iyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xvsx8")
+}],
+"loop": true,
+"name": &"pose_1",
+"speed": 1.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehd4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq5g8"]
@@ -171,7 +207,12 @@ frame_progress = 0.459721
 position = Vector2(212, 150)
 texture = ExtResource("2_ovyu4")
 
-[node name="Tiny" type="Sprite2D" parent="."]
+[node name="Tiny" type="AnimatedSprite2D" parent="."]
+position = Vector2(213, 250)
+sprite_frames = SubResource("SpriteFrames_bgtb8")
+animation = &"pose_1"
+autoplay = "pose_1"
+frame_progress = 0.920584
 
 [node name="NoteLanes" type="Sprite2D" parent="."]
 
