@@ -231,6 +231,24 @@ visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Combo" type="Label" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.462
+anchor_top = 0.962
+anchor_right = 0.538
+anchor_bottom = 0.981
+offset_left = -60.776
+offset_top = -20.2001
+offset_right = -30.224
+offset_bottom = 2.39996
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Combo: "
+
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
 [connection signal="spot_in_measure" from="Conductor" to="." method="_on_conductor_spot_in_measure"]
