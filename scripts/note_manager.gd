@@ -19,7 +19,6 @@ func _physics_process(delta):
 		# 16 - size of note
 		# 3600 - frames per minute
 		note.position.y += 5 * ((16 * $"../Conductor".bpm / 3600.0))
-		#(150 * (($"../Conductor".bpm / 60)/ Globals.LANE_LENGTH))
 
 func create_random_note():
 	create_note_of_type(randi_range(0, 3))
@@ -52,7 +51,6 @@ func check_for_points(limb):
 	for note in notes_list:
 		if note.potential_score > 0:
 			score = note.potential_score
-			#TODO call any animation for when they are deleted, perhaps a display of how on the note it was
 			note.queue_free()
 	return score
 	
