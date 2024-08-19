@@ -23,6 +23,23 @@ func _physics_process(delta):
 
 func create_random_note():
 	create_note_of_type(randi_range(0, 3))
+
+func create_two_random_note():
+	var random_note = randi_range(0, 3)
+	create_note_of_type(random_note)
+	create_note_of_type((random_note + 1) % 4)
+	
+func create_three_random_note():
+	var random_note = randi_range(0, 3)
+	create_note_of_type(random_note)
+	create_note_of_type((random_note + 1) % 4)
+	create_note_of_type((random_note + 2) % 4)
+
+func create_four_random_note():
+	create_note_of_type(0)
+	create_note_of_type(1)
+	create_note_of_type(2)
+	create_note_of_type(3)
 	
 func create_note_of_type(limb_type):
 	var note_instance = note_scene.instantiate()
