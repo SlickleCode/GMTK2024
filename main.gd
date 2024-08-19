@@ -21,13 +21,13 @@ func _physics_process(delta):
 			$BigPath.position.x = 324
 
 		if Input.is_action_just_pressed('left_leg'):
-			handle_note_input($InputManager/LeftLegInputSpot, Enums.Limb.LEFT_FOOT)
+			handle_note_input($InputManager/LeftLegInputSpot, Globals.Limb.LEFT_FOOT)
 		if Input.is_action_just_pressed('right_leg'):
-			handle_note_input($InputManager/RightLegInputSpot, Enums.Limb.RIGHT_FOOT)
+			handle_note_input($InputManager/RightLegInputSpot, Globals.Limb.RIGHT_FOOT)
 		if Input.is_action_just_pressed('left_hand'):
-			handle_note_input($InputManager/LeftHandInputSpot, Enums.Limb.LEFT_HAND)
+			handle_note_input($InputManager/LeftHandInputSpot, Globals.Limb.LEFT_HAND)
 		if Input.is_action_just_pressed('right_hand'):
-			handle_note_input($InputManager/RightHandInputSpot, Enums.Limb.RIGHT_HAND)
+			handle_note_input($InputManager/RightHandInputSpot, Globals.Limb.RIGHT_HAND)
 
 func handle_note_input(sprite_node, limb_enum):
 	var temp_score = $NoteManager.check_for_points(limb_enum)

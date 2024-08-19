@@ -12,18 +12,21 @@ https://www.youtube.com/watch?v=8HswBGD5av0
 
 ## Game Roadmap
 ### MVP
-- Tiny's world (outside frame)
-- Screen for Big's world (basic animation of walking)
-- Figure out how to show Rhythm buttons/beats
-- Also implement basic 4/4 rhythm game
+- Tiny's world (outside frame) IN PROGRESS, needs art fleshed out. Walls (kettle and stove, speaker, plant, panels), Tiny.
+- -Screen for Big's world (basic animation of walking)- DONE
+- -Figure out how to show Rhythm buttons/beats- DONE
+- -Also implement basic 4/4 rhythm game- DONE
 
 ### Additional Features:
-- Different stages for Big/different life happenings (basically different rhythm levels)
- - Always ends the stage by going to sleep (level transition)
-- Animations for Tiny doing things
+- Different stages for Big/different life happenings (basically different rhythm levels) - IN PROGRESS
+- -Always ends the stage by going to sleep (level transition)- Change to stops running. Works!
+- Animations for Tiny doing things - 4 frames that switch randomly between hitting beats. Bonus - frame when the game ends that turns off the kettle, and has Tiny with a cup of tea/wiping sweat from brow.
+- Add lampost to the Big world. Faster than background.
+- Add animations/ words that pop up when you hit a note.
+- Add instructions for the game to main screen/ polish main screen in general.
 
 ### Stretch Goals:
-- Tiny having downtime/cute activities (watering plants, sleeping, fishing, etc)
+- Tiny having extra downtime/cute activities (watering plants, sleeping, fishing, etc)
 - Switch keys for bonus? Do two activities at once?
 - Add a fuck-ton of polish (animation/art, rhythm game)
 
