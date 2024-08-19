@@ -2,12 +2,11 @@ extends Node2D
 
 var note_scene = preload('res://scenes/Note.tscn')
 var notes_map = {
-	Enums.Limb.LEFT_FOOT: "left_foot_spawner/left_foot_notes",
-	Enums.Limb.RIGHT_FOOT: "right_foot_spawner/right_foot_notes",
-	Enums.Limb.LEFT_HAND: "left_hand_spawner/left_hand_notes",
-	Enums.Limb.RIGHT_HAND: "right_hand_spawner/right_hand_notes",
+	Globals.Limb.LEFT_FOOT: "left_foot_spawner/left_foot_notes",
+	Globals.Limb.RIGHT_FOOT: "right_foot_spawner/right_foot_notes",
+	Globals.Limb.LEFT_HAND: "left_hand_spawner/left_hand_notes",
+	Globals.Limb.RIGHT_HAND: "right_hand_spawner/right_hand_notes",
 }
-
 
 func _physics_process(delta):
 	var notes = []
@@ -15,7 +14,12 @@ func _physics_process(delta):
 		notes.append_array(get_node(note_list).get_children())
 	
 	for note in notes:
-		note.position.y += 1
+		# 5 - must be a multplier or a division of how many beats
+		# it takes to get to the bottom of the lane (lane size / note size)
+		# 16 - size of note
+		# 3600 - frames per minute
+		note.position.y += 5 * ((16 * $"../Conductor".bpm / 3600.0))
+		#(150 * (($"../Conductor".bpm / 60)/ Globals.LANE_LENGTH))
 
 func create_random_note():
 	create_note_of_type(randi_range(0, 3))
