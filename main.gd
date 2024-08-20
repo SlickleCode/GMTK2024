@@ -29,6 +29,7 @@ func on_song_change(amount_of_change):
 	conductor_instance.connect("beat", _on_conductor_beat)
 	conductor_instance.connect("spot_in_measure", _on_conductor_spot_in_measure)
 	conductor_instance.connect("finished", _on_conductor_finished)
+	conductor_instance.playback_type = AudioServer.PlaybackType.PLAYBACK_TYPE_STREAM
 	add_child(conductor_instance)
 	if amount_of_change == 0:
 		beat_stretch = -4
