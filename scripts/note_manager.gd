@@ -1,5 +1,7 @@
 extends Node2D
 
+signal remove_combo_nm
+
 var bpm = 1
 
 var note_scene = preload('res://scenes/Note.tscn')
@@ -46,8 +48,12 @@ func create_four_random_note():
 func create_note_of_type(limb_type):
 	var note_instance = note_scene.instantiate()
 	note_instance.body_part = limb_type
+	note_instance.connect("remove_combo", remove_combo)
 	get_node(notes_map[limb_type]).add_child(note_instance)
-		
+
+func remove_combo():
+	emit_signal("remove_combo_nm")
+
 func check_for_points(limb):
 	var notes_list = get_node(notes_map[limb]).get_children()
 	var score = 0
