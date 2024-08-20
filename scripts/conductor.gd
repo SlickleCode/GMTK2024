@@ -20,12 +20,14 @@ signal spot_in_measure(position)
 
 func _ready():
 	sec_per_beat = 60.0 / bpm
+	# BUG: this does not use the reset BPM. Workaround: calculate each time
+	# its used in the physics processor below.
 
 func _physics_process(_delta):
 	if playing:
 		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
 		song_position -= AudioServer.get_output_latency()
-		song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
+		song_position_in_beats = int(floor(song_position / (60.0 / bpm))) + beats_before_start
 		_report_beat()
 
 func _report_beat():
