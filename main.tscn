@@ -328,7 +328,7 @@ position = Vector2(351, 238.5)
 shape = SubResource("RectangleShape2D_r2iw0")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/LeftHandInputSpot"]
-texture = ExtResource("35_5islh")
+texture = ExtResource("36_ejf5t")
 
 [node name="Label" type="Label" parent="InputManager/LeftHandInputSpot"]
 anchors_preset = 7
@@ -352,7 +352,7 @@ position = Vector2(392.5, 238.5)
 shape = SubResource("RectangleShape2D_06fb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/RightHandInputSpot"]
-texture = ExtResource("36_ejf5t")
+texture = ExtResource("35_5islh")
 
 [node name="Label" type="Label" parent="InputManager/RightHandInputSpot"]
 anchors_preset = 7

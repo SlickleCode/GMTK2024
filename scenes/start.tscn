@@ -127,7 +127,7 @@ text = "J Key for Left Hand"
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-texture = ExtResource("4_tnlcm")
+texture = ExtResource("5_wkwd4")
 stretch_mode = 5
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
@@ -144,7 +144,7 @@ text = "K Key for Right Hand"
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-texture = ExtResource("5_wkwd4")
+texture = ExtResource("4_tnlcm")
 stretch_mode = 5
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
