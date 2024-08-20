@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dddptgqssvvjd"
-path="res://.godot/imported/left_foot_outline.png-c58b1c5f98a758398d71baf9064bb8e4.ctex"
+uid="uid://b2x5c0y0hc7mw"
+path="res://.godot/imported/right_foot_outline.png-87d854f372472b825009c745a2c79766.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/notes/left_foot_outline.png"
-dest_files=["res://.godot/imported/left_foot_outline.png-c58b1c5f98a758398d71baf9064bb8e4.ctex"]
+source_file="res://assets/notes/right_foot_outline.png"
+dest_files=["res://.godot/imported/right_foot_outline.png-87d854f372472b825009c745a2c79766.ctex"]
 
 [params]
 
