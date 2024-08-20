@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds1yox0n0d32y"]
+[gd_scene load_steps=8 format=3 uid="uid://ds1yox0n0d32y"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_y27oh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b7sq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6kit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq4fb"]
+bg_color = Color(0.549425, 0.15519, 0.168593, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqbl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywcqm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2w4n"]
+bg_color = Color(0.313726, 0.211765, 0.796078, 1)
 
 [node name="end_screen" type="Control"]
 layout_mode = 3
@@ -60,10 +74,25 @@ theme_override_font_sizes/font_size = 36
 text = "Score: 0"
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button2" type="Button" parent="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_4b7sq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x6kit")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hq4fb")
+text = "Main Menu"
+
+[node name="Button" type="Button" parent="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Next song"
+theme_override_styles/hover = SubResource("StyleBoxFlat_aqbl0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ywcqm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m2w4n")
+text = "Next Song"
 
-[connection signal="pressed" from="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/ColorRect/MarginContainer/ColorRect/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
