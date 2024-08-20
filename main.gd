@@ -18,11 +18,10 @@ func _ready():
 	$InputManager/LeftLegInputSpot/Label.modulate = Color(1, 1, 1, 0)
 	randomize()
 	on_song_change(0)
-	$Timer.start()
 
 func on_song_change(amount_of_change):
 	#TODO testing line for switching songs
-	# amount_of_change = 1
+	#amount_of_change = 2
 	
 	cur_song_count = amount_of_change
 	$CanvasLayer.hide()
@@ -39,23 +38,20 @@ func on_song_change(amount_of_change):
 	elif amount_of_change == 1:
 		beat_stretch = -4
 		conductor_instance.stream = load("res://assets/music/lazy-time-summer-relax-lofi-199737.mp3")
-		conductor_instance.bpm = 85
-		$NoteManager.bpm = 85
-	elif amount_of_change == 2:# placeholder
+		conductor_instance.bpm = 84
+		$NoteManager.bpm = 84
+	elif amount_of_change == 2:
 		beat_stretch = -4
-		conductor_instance.stream = load("res://assets/music/all-the-time-144594.mp3")
-		conductor_instance.bpm = 120
-		$NoteManager.bpm = 120
-	elif amount_of_change == 1:# placeholder
-		conductor_instance.stream = load("res://assets/music/good-night-160166.mp3")
-		conductor_instance.bpm = 80
-		$NoteManager.bpm = 80
+		conductor_instance.stream = load("res://assets/music/cooking-beats-154289.mp3")
+		conductor_instance.bpm = 160
+		$NoteManager.bpm = 160
 	$Timer.start()
 
 func start_song_and_game():
 	score = 0
 	combo = 0
 	schmoving = true
+	$Tiny.play("sitting")
 	$Big.play("walk")
 	await get_tree().create_timer(1.0).timeout
 	$NoteManager/left_foot_spawner.show()
@@ -66,7 +62,7 @@ func start_song_and_game():
 	$InputManager/LeftHandInputSpot.show()
 	$NoteManager/right_hand_spawner.show()
 	$InputManager/RightHandInputSpot.show()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	$Big.play("run")
 	$Tiny.play("sitting")
 	$TinyWorld.play("default")
@@ -137,18 +133,65 @@ func create_score_popup(score, limb_enum):
 		tween.tween_property($InputManager/LeftLegInputSpot/Label, "modulate", Color(1, 1, 1, 0), .3).from(Color(1, 1, 1, 1))
 
 func _on_conductor_beat(beat_position):
-	#print(beat_position)
+	print(beat_position)
 	var relative_beat = beat_position - beat_stretch
 	if cur_song_count == 0:
 		good_night_beat_stuff(relative_beat)
-	if cur_song_count > 0:
+	elif cur_song_count == 1:
 		lazy_time_summer_beat_stuff(relative_beat)
+	elif cur_song_count == 2:
+		cooking_beats_beat_stuff(relative_beat)
+
+func cooking_beats_beat_stuff(beat_position):
+	difficulty = 0
+	if beat_position < 16:
+		conductor_instance.bpm = 80
+		$NoteManager.bpm = 80
+	if beat_position < 16 and beat_position % 2 == 0:
+		difficulty = 2
+	if beat_position >= 20:
+		conductor_instance.bpm = 160
+		$NoteManager.bpm = 160
+	if beat_position > 20:
+		difficulty = 1
+	if beat_position > 96 and beat_position % 2 == 0:
+		difficulty = 1
+	if beat_position > 96 and beat_position % 2 == 0:
+		difficulty = 2
+	if beat_position > 160:
+		difficulty = 0
+	if beat_position > 192:
+		difficulty = 1
+	if beat_position > 224 and beat_position % 2 == 0:
+		difficulty = 1
+	if beat_position > 224 and beat_position % 2 == 1:
+		difficulty = 4
+	if beat_position > 287 and beat_position % 4 == 0:
+		difficulty = 3
+	if beat_position > 352:
+		difficulty = 0
 
 func lazy_time_summer_beat_stuff(beat_position):
+	difficulty = 0
 	if beat_position > 16:
 		difficulty = 1
+	if beat_position > 16 and beat_position % 4 == 0:
+		difficulty = 2
+	if beat_position > 80:
+		difficulty = 1
+	if beat_position == 112:
+		difficulty = 4
+	if beat_position > 112 and beat_position % 4 == 0:
+		difficulty = 3
+	if beat_position > 146 and (beat_position + 1) % 4 == 0:
+		difficulty = 2
+	if beat_position > 146 and (beat_position - 1) % 4 == 0:
+		difficulty = 2
+	if beat_position > 178:
+		difficulty = 0
 
 func good_night_beat_stuff(beat_position):
+	difficulty = 0
 	if beat_position > 16:
 		difficulty = 1
 	if beat_position > 48 and beat_position % 2 == 0:
@@ -183,7 +226,7 @@ func good_night_beat_stuff(beat_position):
 		difficulty = 0
 
 func _on_conductor_spot_in_measure(measure_position):
-	print(measure_position)
+	#print(measure_position)
 	if measure_position == 1:
 		check_difficulty_and_spawn()
 	elif measure_position == 2:
@@ -222,6 +265,5 @@ func _on_conductor_finished():
 	$TinyWorld.play("still")
 	$CanvasLayer.show()
 	
-
-func _on_area_2d_body_entered(body):
-	print(body)
+func _on_note_manager_remove_combo_nm():
+	combo = 0

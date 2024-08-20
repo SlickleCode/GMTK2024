@@ -2,6 +2,8 @@ extends Node2D
 
 @export_range(0, 4) var body_part := 0
 
+signal remove_combo
+
 var notes = [
 	preload("res://assets/notes/left_foot.png"),
 	preload("res://assets/notes/right_foot.png"),
@@ -17,6 +19,7 @@ func _ready():
 
 func _on_poor_rating_area_entered(area):
 	if area.name == 'Despawner':
+		emit_signal("remove_combo")
 		queue_free()
 	potential_score += 1
 

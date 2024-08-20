@@ -47,13 +47,13 @@ func play_with_beat_offset(num):
 	play()
 
 func closest_beat(nth):
-	closest = int(round((song_position / sec_per_beat) / nth) * nth) 
-	time_off_beat = abs(closest * sec_per_beat - song_position)
+	closest = int(round((song_position / (60.0 / bpm)) / nth) * nth) 
+	time_off_beat = abs(closest * (60.0 / bpm) - song_position)
 	return Vector2(closest, time_off_beat)
 
 func play_from_beat(beat_num, offset):
 	play()
-	seek(beat_num * sec_per_beat)
+	seek(beat_num * (60.0 / bpm))
 	beats_before_start = offset
 	cur_measure_spot = beat_num % measures
 

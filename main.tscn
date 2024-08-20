@@ -38,10 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://lpeujl22nrh6" path="res://assets/tiny_character/resting/tiny_rest_2.png" id="31_mvsal"]
 [ext_resource type="Texture2D" uid="uid://c4k1rte6f253i" path="res://assets/background_no_steam.png" id="31_scahx"]
 [ext_resource type="Texture2D" uid="uid://oqmxptm0t706" path="res://assets/tiny_character/pose_2/little_buddy_pose_2_open.png" id="32_xvsx8"]
-[ext_resource type="Texture2D" uid="uid://dddptgqssvvjd" path="res://assets/notes/left_foot_outline.png" id="33_aeh84"]
-[ext_resource type="Texture2D" uid="uid://b2x5c0y0hc7mw" path="res://assets/notes/right_foot_outline.png" id="34_s101w"]
-[ext_resource type="Texture2D" uid="uid://ckfbmhge6idpr" path="res://assets/notes/left_hand_outline.png" id="35_5islh"]
-[ext_resource type="Texture2D" uid="uid://ctwq3rqcgivya" path="res://assets/notes/right_hand_outline.png" id="36_ejf5t"]
+[ext_resource type="Texture2D" uid="uid://dddptgqssvvjd" path="res://assets/notes/right_foot_outline.png" id="33_aeh84"]
+[ext_resource type="Texture2D" uid="uid://b2x5c0y0hc7mw" path="res://assets/notes/left_foot_outline.png" id="34_s101w"]
+[ext_resource type="Texture2D" uid="uid://ckfbmhge6idpr" path="res://assets/notes/right_hand_outline.png" id="35_5islh"]
+[ext_resource type="Texture2D" uid="uid://ctwq3rqcgivya" path="res://assets/notes/left_hand_outline.png" id="36_ejf5t"]
 [ext_resource type="PackedScene" uid="uid://ds1yox0n0d32y" path="res://scenes/end_screen.tscn" id="37_u2io6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ofyq"]
@@ -280,7 +280,7 @@ position = Vector2(31, 238.5)
 shape = SubResource("RectangleShape2D_ehd4f")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/LeftLegInputSpot"]
-texture = ExtResource("33_aeh84")
+texture = ExtResource("34_s101w")
 
 [node name="Label" type="Label" parent="InputManager/LeftLegInputSpot"]
 anchors_preset = 7
@@ -304,7 +304,7 @@ position = Vector2(73, 238.5)
 shape = SubResource("RectangleShape2D_wq5g8")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputManager/RightLegInputSpot"]
-texture = ExtResource("34_s101w")
+texture = ExtResource("33_aeh84")
 
 [node name="Label" type="Label" parent="InputManager/RightLegInputSpot"]
 anchors_preset = 7
@@ -398,5 +398,6 @@ text = "Combo: 0"
 wait_time = 2.0
 one_shot = true
 
+[connection signal="remove_combo_nm" from="NoteManager" to="." method="_on_note_manager_remove_combo_nm"]
 [connection signal="change_song" from="CanvasLayer/end_screen" to="." method="on_song_change"]
 [connection signal="timeout" from="Timer" to="." method="start_song_and_game"]
