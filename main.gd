@@ -21,7 +21,9 @@ func _ready():
 	$Timer.start()
 
 func on_song_change(amount_of_change):
-	amount_of_change = 1
+	#TODO remove
+	#amount_of_change = 1
+	
 	cur_song_count = amount_of_change
 	$CanvasLayer.hide()
 	conductor_instance = conductor_obj.instantiate()
@@ -37,13 +39,13 @@ func on_song_change(amount_of_change):
 	elif amount_of_change == 1:
 		beat_stretch = -4
 		conductor_instance.stream = load("res://assets/music/lazy-time-summer-relax-lofi-199737.mp3")
-		conductor_instance.bpm = 78.8
-		$NoteManager.bpm = 78.8
-	elif amount_of_change == 1:
+		conductor_instance.bpm = 82 # math, how could you betray me like this
+		$NoteManager.bpm = 82
+	elif amount_of_change == 1:# placeholder
 		conductor_instance.stream = load("res://assets/music/good-night-160166.mp3")
 		conductor_instance.bpm = 80
 		$NoteManager.bpm = 80
-	elif amount_of_change == 1:
+	elif amount_of_change == 1:# placeholder
 		conductor_instance.stream = load("res://assets/music/good-night-160166.mp3")
 		conductor_instance.bpm = 80
 		$NoteManager.bpm = 80
@@ -54,7 +56,6 @@ func start_song_and_game():
 	combo = 0
 	schmoving = true
 	$Big.play("walk")
-	$Tiny.play()
 	await get_tree().create_timer(1.0).timeout
 	$NoteManager/left_foot_spawner.show()
 	$InputManager/LeftLegInputSpot.show()
@@ -66,6 +67,8 @@ func start_song_and_game():
 	$InputManager/RightHandInputSpot.show()
 	await get_tree().create_timer(3.0).timeout
 	$Big.play("run")
+	$Tiny.play("sitting")
+	$TinyWorld.play("default")
 	await get_tree().create_timer(0.5).timeout
 	conductor_instance.play_with_beat_offset(0)
 
@@ -200,6 +203,7 @@ func check_difficulty_and_spawn():
 
 func _on_conductor_finished():
 	$Big.play("walk")
+	$Tiny.stop()
 	await get_tree().create_timer(3.0).timeout
 	schmoving = false
 	$Big.play("wait")
@@ -212,8 +216,9 @@ func _on_conductor_finished():
 	$NoteManager/right_hand_spawner.hide()
 	$InputManager/RightHandInputSpot.hide()
 	await get_tree().create_timer(1.5).timeout
+	$Tiny.play("resting")
+	$TinyWorld.play("still")
 	$CanvasLayer.show()
-	$Tiny.stop()
 	
 
 func _on_area_2d_body_entered(body):
