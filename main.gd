@@ -21,8 +21,8 @@ func _ready():
 	$Timer.start()
 
 func on_song_change(amount_of_change):
-	#TODO remove
-	#amount_of_change = 1
+	#TODO testing line for switching songs
+	# amount_of_change = 1
 	
 	cur_song_count = amount_of_change
 	$CanvasLayer.hide()
@@ -39,12 +39,13 @@ func on_song_change(amount_of_change):
 	elif amount_of_change == 1:
 		beat_stretch = -4
 		conductor_instance.stream = load("res://assets/music/lazy-time-summer-relax-lofi-199737.mp3")
-		conductor_instance.bpm = 82 # math, how could you betray me like this
-		$NoteManager.bpm = 82
-	elif amount_of_change == 1:# placeholder
-		conductor_instance.stream = load("res://assets/music/good-night-160166.mp3")
-		conductor_instance.bpm = 80
-		$NoteManager.bpm = 80
+		conductor_instance.bpm = 85
+		$NoteManager.bpm = 85
+	elif amount_of_change == 2:# placeholder
+		beat_stretch = -4
+		conductor_instance.stream = load("res://assets/music/all-the-time-144594.mp3")
+		conductor_instance.bpm = 120
+		$NoteManager.bpm = 120
 	elif amount_of_change == 1:# placeholder
 		conductor_instance.stream = load("res://assets/music/good-night-160166.mp3")
 		conductor_instance.bpm = 80
@@ -136,11 +137,11 @@ func create_score_popup(score, limb_enum):
 		tween.tween_property($InputManager/LeftLegInputSpot/Label, "modulate", Color(1, 1, 1, 0), .3).from(Color(1, 1, 1, 1))
 
 func _on_conductor_beat(beat_position):
-	print(beat_position)
+	#print(beat_position)
 	var relative_beat = beat_position - beat_stretch
 	if cur_song_count == 0:
 		good_night_beat_stuff(relative_beat)
-	if cur_song_count == 1:
+	if cur_song_count > 0:
 		lazy_time_summer_beat_stuff(relative_beat)
 
 func lazy_time_summer_beat_stuff(beat_position):
@@ -182,6 +183,7 @@ func good_night_beat_stuff(beat_position):
 		difficulty = 0
 
 func _on_conductor_spot_in_measure(measure_position):
+	print(measure_position)
 	if measure_position == 1:
 		check_difficulty_and_spawn()
 	elif measure_position == 2:
