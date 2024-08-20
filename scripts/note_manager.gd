@@ -20,7 +20,8 @@ func _physics_process(delta):
 		# it takes to get to the bottom of the lane (lane size / note size)
 		# 16 - size of note
 		# 3600 - frames per minute
-		note.position.y += 5 * ((16 * bpm / 3600.0))
+		var speed = 5.0 * ((16.0 * bpm / 3600.0))
+		note.position.y += speed
 
 func create_random_note():
 	create_note_of_type(randi_range(0, 3))
